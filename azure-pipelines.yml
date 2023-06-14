@@ -10,6 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: AzureCloudPowerShellDeployment@1
+  inputs:
+    azureClassicSubscription: 'Azure Connection'
+    EnableAdvancedStorageOptions: false
+    CsPkg: 
+    slotName: 'Production'
+    AllowUpgrade: true
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
